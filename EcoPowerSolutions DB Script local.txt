@@ -1,0 +1,169 @@
+USE [master]
+GO
+/****** Object:  Database [EcoPowerSolutions]    Script Date: 16/08/2023 15:08:58 ******/
+CREATE DATABASE [EcoPowerSolutions]
+ CONTAINMENT = NONE
+ ON  PRIMARY 
+( NAME = N'EcoPowerSolutions', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\DATA\EcoPowerSolutions.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
+ LOG ON 
+( NAME = N'EcoPowerSolutions_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\DATA\EcoPowerSolutions_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
+ WITH CATALOG_COLLATION = DATABASE_DEFAULT
+GO
+ALTER DATABASE [EcoPowerSolutions] SET COMPATIBILITY_LEVEL = 150
+GO
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [EcoPowerSolutions].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+ALTER DATABASE [EcoPowerSolutions] SET ANSI_NULL_DEFAULT OFF 
+GO
+ALTER DATABASE [EcoPowerSolutions] SET ANSI_NULLS OFF 
+GO
+ALTER DATABASE [EcoPowerSolutions] SET ANSI_PADDING OFF 
+GO
+ALTER DATABASE [EcoPowerSolutions] SET ANSI_WARNINGS OFF 
+GO
+ALTER DATABASE [EcoPowerSolutions] SET ARITHABORT OFF 
+GO
+ALTER DATABASE [EcoPowerSolutions] SET AUTO_CLOSE OFF 
+GO
+ALTER DATABASE [EcoPowerSolutions] SET AUTO_SHRINK OFF 
+GO
+ALTER DATABASE [EcoPowerSolutions] SET AUTO_UPDATE_STATISTICS ON 
+GO
+ALTER DATABASE [EcoPowerSolutions] SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+ALTER DATABASE [EcoPowerSolutions] SET CURSOR_DEFAULT  GLOBAL 
+GO
+ALTER DATABASE [EcoPowerSolutions] SET CONCAT_NULL_YIELDS_NULL OFF 
+GO
+ALTER DATABASE [EcoPowerSolutions] SET NUMERIC_ROUNDABORT OFF 
+GO
+ALTER DATABASE [EcoPowerSolutions] SET QUOTED_IDENTIFIER OFF 
+GO
+ALTER DATABASE [EcoPowerSolutions] SET RECURSIVE_TRIGGERS OFF 
+GO
+ALTER DATABASE [EcoPowerSolutions] SET  DISABLE_BROKER 
+GO
+ALTER DATABASE [EcoPowerSolutions] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+ALTER DATABASE [EcoPowerSolutions] SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+ALTER DATABASE [EcoPowerSolutions] SET TRUSTWORTHY OFF 
+GO
+ALTER DATABASE [EcoPowerSolutions] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+ALTER DATABASE [EcoPowerSolutions] SET PARAMETERIZATION SIMPLE 
+GO
+ALTER DATABASE [EcoPowerSolutions] SET READ_COMMITTED_SNAPSHOT OFF 
+GO
+ALTER DATABASE [EcoPowerSolutions] SET HONOR_BROKER_PRIORITY OFF 
+GO
+ALTER DATABASE [EcoPowerSolutions] SET RECOVERY FULL 
+GO
+ALTER DATABASE [EcoPowerSolutions] SET  MULTI_USER 
+GO
+ALTER DATABASE [EcoPowerSolutions] SET PAGE_VERIFY CHECKSUM  
+GO
+ALTER DATABASE [EcoPowerSolutions] SET DB_CHAINING OFF 
+GO
+ALTER DATABASE [EcoPowerSolutions] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
+GO
+ALTER DATABASE [EcoPowerSolutions] SET TARGET_RECOVERY_TIME = 60 SECONDS 
+GO
+ALTER DATABASE [EcoPowerSolutions] SET DELAYED_DURABILITY = DISABLED 
+GO
+ALTER DATABASE [EcoPowerSolutions] SET ACCELERATED_DATABASE_RECOVERY = OFF  
+GO
+EXEC sys.sp_db_vardecimal_storage_format N'EcoPowerSolutions', N'ON'
+GO
+ALTER DATABASE [EcoPowerSolutions] SET QUERY_STORE = OFF
+GO
+USE [EcoPowerSolutions]
+GO
+/****** Object:  Table [dbo].[Customers]    Script Date: 16/08/2023 15:08:58 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Customers](
+	[CustomerId] [smallint] NOT NULL,
+	[CustomerTitle] [nvarchar](50) NULL,
+	[CustomerName] [nvarchar](50) NULL,
+	[CustomerSurname] [nvarchar](50) NULL,
+	[CellPhone] [nvarchar](50) NULL,
+ CONSTRAINT [PK_Customers] PRIMARY KEY CLUSTERED 
+(
+	[CustomerId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[OrderDetails]    Script Date: 16/08/2023 15:08:58 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[OrderDetails](
+	[OrderDetailsID] [smallint] NOT NULL,
+	[OrderId] [smallint] NOT NULL,
+	[ProductId] [smallint] NOT NULL,
+	[Quantity] [int] NOT NULL,
+	[Discount] [int] NULL,
+ CONSTRAINT [PK_OrderDetails] PRIMARY KEY CLUSTERED 
+(
+	[OrderDetailsID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Orders]    Script Date: 16/08/2023 15:08:58 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Orders](
+	[OrderId] [smallint] NOT NULL,
+	[OrderDate] [datetime] NOT NULL,
+	[CustomerId] [smallint] NOT NULL,
+	[DeliveryAddress] [nvarchar](50) NULL,
+ CONSTRAINT [PK_Orders] PRIMARY KEY CLUSTERED 
+(
+	[OrderId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Products]    Script Date: 16/08/2023 15:08:58 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Products](
+	[ProductId] [smallint] NOT NULL,
+	[ProductName] [nvarchar](50) NOT NULL,
+	[ProductDescription] [nvarchar](50) NULL,
+	[UnitsInStock] [int] NULL,
+ CONSTRAINT [PK_Products] PRIMARY KEY CLUSTERED 
+(
+	[ProductId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[OrderDetails]  WITH CHECK ADD  CONSTRAINT [FK_OrderDetails_Orders] FOREIGN KEY([OrderId])
+REFERENCES [dbo].[Orders] ([OrderId])
+GO
+ALTER TABLE [dbo].[OrderDetails] CHECK CONSTRAINT [FK_OrderDetails_Orders]
+GO
+ALTER TABLE [dbo].[OrderDetails]  WITH CHECK ADD  CONSTRAINT [FK_OrderDetails_Products1] FOREIGN KEY([ProductId])
+REFERENCES [dbo].[Products] ([ProductId])
+GO
+ALTER TABLE [dbo].[OrderDetails] CHECK CONSTRAINT [FK_OrderDetails_Products1]
+GO
+ALTER TABLE [dbo].[Orders]  WITH CHECK ADD  CONSTRAINT [FK_Orders_Customers] FOREIGN KEY([CustomerId])
+REFERENCES [dbo].[Customers] ([CustomerId])
+GO
+ALTER TABLE [dbo].[Orders] CHECK CONSTRAINT [FK_Orders_Customers]
+GO
+USE [master]
+GO
+ALTER DATABASE [EcoPowerSolutions] SET  READ_WRITE 
+GO

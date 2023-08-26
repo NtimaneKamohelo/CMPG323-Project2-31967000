@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "restored": true,
+      "restoreTime": "2023-08-26T13:47:56.2536234Z"
+    },
+    "secrets1": {
+      "restored": true,
+      "restoreTime": "2023-08-26T13:46:36.6963071Z"
+    }
+  },
+  "parameters": {
+    "mssql1.subscriptionId": {
+      "Name": "mssql1.subscriptionId",
+      "Type": "subscription",
+      "Value": "1a202874-ea50-4354-b042-d059eed4bc1e"
+    },
+    "mssql1.resourceGroupName": {
+      "Name": "mssql1.resourceGroupName",
+      "Type": "resourceGroup",
+      "Value": "CMPG323-Project2-31967000"
+    }
+  }
+}
