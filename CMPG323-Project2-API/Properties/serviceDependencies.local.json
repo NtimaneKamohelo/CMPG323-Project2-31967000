@@ -4,11 +4,11 @@
       "type": "secrets.user"
     },
     "mssql1": {
-      "serviceConnectorResourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.ServiceLinker/locations/southafricanorth/connectors/myConnetcionString_86D8B61E84",
+      "serviceConnectorResourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.ServiceLinker/locations/southafricanorth/connectors/muConnectionStrings_9B8E0F693C",
       "secretStore": "LocalSecretsFile",
-      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/cmpg323-project2/databases/cmpg323-2-31967000",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/svcmpg323sql/databases/dbCMPG323Project2",
       "type": "mssql.azure",
-      "connectionId": "myConnetcionString",
+      "connectionId": "muConnectionStrings",
       "dynamicId": null
     }
   }
