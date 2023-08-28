@@ -18,3 +18,9 @@ An API endpoint is a point at which an API -- the code that allows two software 
 
 3. POST: Create New Product
     - This endpoint allows you to add a new product to the catalog.
+
+4. PUT: Update the product
+    - Updates an existing reqource
+
+5. DELETE: Removes product
+    - Removes a resource
