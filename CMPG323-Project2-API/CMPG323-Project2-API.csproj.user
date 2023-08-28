@@ -10,5 +10,6 @@
     <WebStackScaffolding_LayoutPageFile />
     <WebStackScaffolding_DbContextTypeFullName>CMPG323_Project2_API.Models.dbCMPG323Project2Context</WebStackScaffolding_DbContextTypeFullName>
     <WebStackScaffolding_IsAsyncSelected>False</WebStackScaffolding_IsAsyncSelected>
+    <NameOfLastUsedPublishProfile>C:\Users\ntima\OneDrive\Desktop\CMPG323-Projects\CMPG323-Project2-31967000\CMPG323-Project2-API\Properties\PublishProfiles\CMPG323-Project2-API - Web Deploy.pubxml</NameOfLastUsedPublishProfile>
   </PropertyGroup>
 </Project>
