@@ -30,4 +30,7 @@ An API endpoint is a point at which an API -- the code that allows two software 
 
 2. Juviler, J. (n.d.). What Is an API Endpoint? (And Why Are They So Important?). [online] blog.hubspot.com. Available at: https://blog.hubspot.com/website/api-endpoint (Accessed: 29 August 2023).
 
+## Security
+
+
 ‌
