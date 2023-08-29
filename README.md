@@ -24,3 +24,10 @@ An API endpoint is a point at which an API -- the code that allows two software 
 
 5. DELETE: Removes product
     - Removes a resource
+
+---------------Reference--------------
+1. TechTarget Contributor (2021) What is an API endpoint? definition from searchapparchitecture, App Architecture. Available at: https://www.techtarget.com/searchapparchitecture/definition/API-endpoint (Accessed: 29 August 2023). 
+
+2. Juviler, J. (n.d.). What Is an API Endpoint? (And Why Are They So Important?). [online] blog.hubspot.com. Available at: https://blog.hubspot.com/website/api-endpoint (Accessed: 29 August 2023).
+
+‌
