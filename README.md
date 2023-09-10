@@ -1,5 +1,8 @@
 # CMPG323-Project2-31967000
 
+##Link to API on Azure:
+https://cmpg323-project2-api.azurewebsites.net/index.html
+
 ## About the API Project
 In this project I am requested to design an API that will store EcoPower Logistics database in microsoft azure. 
 
